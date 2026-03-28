@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriClimate AI - Resilient Agriculture for a Living Planet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#003546",
+                        "on-tertiary": "#482904",
+                        "tertiary-fixed-dim": "#f0bd8b",
+                        "on-background": "#d6e5e9",
+                        "on-tertiary-fixed": "#2c1600",
+                        "on-primary-fixed": "#002114",
+                        "on-primary": "#003824",
+                        "primary-container": "#00452e",
+                        "on-secondary-container": "#88c4e0",
+                        "surface-dim": "#071518",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "surface-bright": "#2e3b3f",
+                        "surface-container-low": "#101e21",
+                        "primary": "#95d4b3",
+                        "primary-fixed-dim": "#95d4b3",
+                        "surface-container-highest": "#29373a",
+                        "outline-variant": "#414844",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-secondary-fixed-variant": "#004d64",
+                        "surface-container": "#142225",
+                        "on-tertiary-fixed-variant": "#623f18",
+                        "on-tertiary-container": "#cd9d6d",
+                        "surface-container-lowest": "#031013",
+                        "primary-fixed": "#b1f0ce",
+                        "secondary-container": "#01526a",
+                        "inverse-on-surface": "#253336",
+                        "background": "#071518",
+                        "inverse-surface": "#d6e5e9",
+                        "on-surface": "#d6e5e9",
+                        "secondary": "#93cfeb",
+                        "surface-container-high": "#1e2c2f",
+                        "tertiary": "#f0bd8b",
+                        "inverse-primary": "#2c694e",
+                        "outline": "#8b938d",
+                        "surface": "#071518",
+                        "surface-tint": "#95d4b3",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#bde9ff",
+                        "surface-variant": "#29373a",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#001f2a",
+                        "tertiary-container": "#56340e",
+                        "on-primary-container": "#76b394",
+                        "on-surface-variant": "#c1c8c2",
+                        "secondary-fixed-dim": "#93cfeb"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(41, 55, 58, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #95d4b3 0%, #93cfeb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, #95d4b3 0%, #00452e 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#29373a]/60 backdrop-blur-lg shadow-[0_40px_40px_0_rgba(214,229,233,0.04)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-[#95d4b3] font-headline">AgriClimate AI</div>
+<div class="hidden md:flex gap-8 items-center font-['Manrope'] font-medium tracking-tight text-sm">
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] pb-1" href="#solutions">Solutions</a>
+<a class="text-[#d6e5e9]/80 hover:text-[#95d4b3] transition-colors" href="#process">Process</a>
+<a class="text-[#d6e5e9]/80 hover:text-[#95d4b3] transition-colors" href="#features">Features</a>
+<a class="text-[#d6e5e9]/80 hover:text-[#95d4b3] transition-colors" href="#impact">Impact</a>
+<a class="text-[#d6e5e9]/80 hover:text-[#95d4b3] transition-colors" href="#team">Team</a>
+<a class="text-[#d6e5e9]/80 hover:text-[#95d4b3] transition-colors" href="#contact">Contact</a>
+</div>
+<button onclick="scrollToSection('contact')" class="btn-primary-gradient px-6 py-2 rounded-xl text-on-primary-fixed font-semibold transition-transform active:scale-90">
+                Get Started
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 fade-in">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="Cinematic aerial view of terraced rice fields in mountains with digital satellite grid overlays and glowing data points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsmr2FWptlpjGuqqcsz8RpUe_OhjhfSx9uJk321hZ00iiT1jZj8KDogv0IpBMyabRY4lrhNWNHThcI_LF1jj3pfrEhIf6skKRlnzH630i3-GrzkgGv-LFK8MgehGLaSx41ufBl-EU4RFxJFcHKjsd8a4wmKvGcJ__VL09RtX-G2Enpj9iVhou7nOUUTz9NSPfmo3ymMYT09c_O0H539kA-G0w9LVprda6jidwoehgQ1VayAOQ-h7jFz-77GD_yZPpRR3Pb8t4yXCU"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/10 via-background/60 to-background"></div>
+</div>
+<div class="relative z-10 max-w-5xl px-6 text-center">
+<span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary-container/30 border border-primary/20 text-primary text-xs font-semibold tracking-widest uppercase">
+                AI-Driven Resilience
+            </span>
+<h1 class="text-5xl md:text-7xl font-extrabold font-headline leading-tight tracking-tight mb-8">
+                Smarter Farming Through <br/>
+<span class="text-gradient-primary">Climate Intelligence</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Empowering smallholder farmers with satellite-grade precision and hyper-local AI insights to navigate a changing world.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button onclick="showDemo()" class="btn-primary-gradient w-full sm:w-auto px-10 py-4 rounded-xl text-on-primary-fixed font-bold text-lg shadow-xl hover:shadow-primary/20 transition-all">
+                    View Demo
+                </button>
+<button onclick="scrollToSection('solutions')" class="w-full sm:w-auto px-10 py-4 rounded-xl bg-surface-container-highest/50 border border-outline-variant/30 text-on-surface font-bold text-lg hover:bg-surface-container-highest transition-all">
+                    Explore Solution
+                </button>
+</div>
+</div>
+</section>
+<!-- Problem Statement -->
+<section class="py-24 bg-surface-container-lowest fade-in">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl font-bold font-headline mb-8 text-secondary">The Fragile Frontier</h2>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-error mt-1" data-icon="warning">warning</span>
+<p class="text-on-surface/80"><strong class="text-on-surface">Erratic Rainfall:</strong> Monsoon shifts are making traditional planting cycles obsolete and risky.</p>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-error mt-1" data-icon="landscape">landscape</span>
+<p class="text-on-surface/80"><strong class="text-on-surface">Geological Instability:</strong> Increasing landslides in hill regions threaten both lives and high-value crops.</p>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-error mt-1" data-icon="query_stats">query_stats</span>
+<p class="text-on-surface/80"><strong class="text-on-surface">Data Fragmentation:</strong> National data lacks the resolution needed for individual smallholder plots.</p>
+</div>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden aspect-video shadow-2xl">
+<img class="w-full h-full object-cover grayscale opacity-70" data-alt="Dramatic mountain landscape with evidence of soil erosion and mist covering the valley peaks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyXbxl6ost4eH4XpFbNKO_Apzx-StioA3mmmo2MOnCbzlEjJTIOcrxuaoA941t1Aj1psVN_iOsXr2ZtrsMtcUPR0llSE00ES3fBWW9qrV4FaQ-a9zbIEXYM-Zp8jlhb3X4kMct_EeUUfpZFA7fJ5edhJli2INCgtn5-TVFC0FGZoXiphDk0PPlRVGk35vLdiLQTEjgmHK1KJTTTJhy9VmYaBzPK8vGe1zpiIBrEQDLQe_WVE51BhUdVQz6QcGXM3mNBSHvgeW_pys"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-xl">
+<p class="text-sm font-medium italic">"Climate change isn't a future threat for hill farmers—it's their daily reality."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Our AI Solution -->
+<section class="py-24 relative fade-in" id="solutions">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold font-headline mb-4">The Digital Guardian</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Bridging the gap between space-age technology and soil-level action.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 hover:border-primary/40 transition-all group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="satellite_alt">satellite_alt</span>
+<h3 class="text-xl font-bold mb-4">Satellite Integration</h3>
+<p class="text-on-surface/70 leading-relaxed">Real-time multispectral imagery monitoring crop vigor, water stress, and land changes from 600km above.</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 hover:border-secondary/40 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6" data-icon="psychology">psychology</span>
+<h3 class="text-xl font-bold mb-4">Crop Intelligence</h3>
+<p class="text-on-surface/70 leading-relaxed">Deep learning models trained on decades of regional yield data to predict optimal harvest windows and pest risks.</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 hover:border-tertiary/40 transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6" data-icon="broadcast_on_personal">broadcast_on_personal</span>
+<h3 class="text-xl font-bold mb-4">Hyper-Local Advisories</h3>
+<p class="text-on-surface/70 leading-relaxed">Personalized SMS and voice alerts tailored to the unique micro-climate of each individual farm plot.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-24 bg-surface-container fade-in" id="process">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold font-headline mb-16 text-center">Engineered for Precision</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="relative flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-2xl mb-6">1</div>
+<h4 class="font-bold mb-2">Data Collection</h4>
+<p class="text-sm text-on-surface/60">IoT sensors and satellite arrays gather terabytes of environmental data.</p>
+<div class="hidden md:block absolute top-14 left-[70%] w-full h-[2px] bg-gradient-to-r from-primary/30 to-transparent"></div>
+</div>
+<div class="relative flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold text-2xl mb-6">2</div>
+<h4 class="font-bold mb-2">AI Analysis</h4>
+<p class="text-sm text-on-surface/60">Our neural networks process data to identify patterns invisible to the human eye.</p>
+<div class="hidden md:block absolute top-14 left-[70%] w-full h-[2px] bg-gradient-to-r from-secondary/30 to-transparent"></div>
+</div>
+<div class="relative flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-bold text-2xl mb-6">3</div>
+<h4 class="font-bold mb-2">Risk Prediction</h4>
+<p class="text-sm text-on-surface/60">Advanced simulations forecast climate risks up to 30 days in advance.</p>
+<div class="hidden md:block absolute top-14 left-[70%] w-full h-[2px] bg-gradient-to-r from-tertiary/30 to-transparent"></div>
+</div>
+<div class="relative flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-on-primary-fixed-variant/20 flex items-center justify-center text-primary-fixed font-bold text-2xl mb-6">4</div>
+<h4 class="font-bold mb-2">Advisory Delivery</h4>
+<p class="text-sm text-on-surface/60">Actionable insights are delivered directly to farmers via mobile devices.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features (Bento Grid) -->
+<section class="py-24 fade-in" id="features">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-extrabold font-headline mb-16 text-center">Feature Ecosystem</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 bg-surface-container-high rounded-3xl p-10 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
+<div class="relative z-10 md:w-1/2">
+<div class="text-primary font-bold text-sm mb-4">CORE TECHNOLOGY</div>
+<h3 class="text-3xl font-bold mb-4">Voice Multilingual Advisory</h3>
+<p class="text-on-surface-variant leading-relaxed">Language should never be a barrier to resilience. Our AI generates natural voice advisories in local dialects for low-literacy communities.</p>
+</div>
+<div class="md:w-1/2 relative">
+<img class="rounded-2xl shadow-2xl scale-110" data-alt="Modern smartphone showing a wave visualization for voice interaction on a dark nature-themed interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ0rKOBG2XonEloKthTpb-SIqTxwBvDacAFBU_vCSpBcrSB5ir57tKFNKcmvsdVVW9hklAtLQhCfOgExy888MrrLAi1HPtEsja2S7fHDycrJCxP7CIS_fOWQbw668h6pW0RKy46bc4vcwgOkd0GaH-YI_Le6A4rlxmzrRH2SpxsD_y9Pi9eIKY8db0bxkkMwrEV4sKZHfDpndGd3C5-tZvzlomdsezT8S6nrF0m3NJf8IJltrvSInfcPtF3Bt-qODBrMzEGGOVZrs"/>
+</div>
+</div>
+<!-- Small Feature Cards -->
+<div class="bg-primary-container/20 rounded-3xl p-8 border border-primary/20">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="cloud_off">cloud_off</span>
+<h3 class="text-xl font-bold mb-3">Offline-First Design</h3>
+<p class="text-sm text-on-surface/70 leading-relaxed">Critical data is cached locally to ensure functionality in remote regions with spotty connectivity.</p>
+</div>
+<div class="bg-surface-container-high rounded-3xl p-8">
+<span class="material-symbols-outlined text-secondary mb-6" data-icon="notification_important">notification_important</span>
+<h3 class="text-xl font-bold mb-3">Early Warning Alerts</h3>
+<p class="text-sm text-on-surface/70 leading-relaxed">Automated alerts for frost, flash floods, or pest outbreaks sent hours before impact.</p>
+</div>
+<div class="bg-surface-container-high rounded-3xl p-8">
+<span class="material-symbols-outlined text-tertiary mb-6" data-icon="account_balance">account_balance</span>
+<h3 class="text-xl font-bold mb-3">Climate Finance</h3>
+<p class="text-sm text-on-surface/70 leading-relaxed">Integrated risk profiles allow farmers to access weather-indexed insurance and micro-loans.</p>
+</div>
+<div class="bg-surface-container-high rounded-3xl p-8">
+<span class="material-symbols-outlined text-primary mb-6" data-icon="temp_preferences_eco">temp_preferences_eco</span>
+<h3 class="text-xl font-bold mb-3">Suitability Forecast</h3>
+<p class="text-sm text-on-surface/70 leading-relaxed">Predictive modeling for which crops will thrive in 5, 10, or 20 years under shifting climates.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Stack -->
+<section class="py-24 bg-surface-container-low overflow-hidden fade-in">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
+<div class="md:max-w-xl">
+<h2 class="text-3xl font-bold font-headline mb-4">Precision Intelligence Stack</h2>
+<p class="text-on-surface-variant">Built on a foundation of cutting-edge geospatial and machine learning frameworks.</p>
+</div>
+<div class="flex gap-4">
+<span class="px-4 py-2 rounded-lg bg-surface-container-highest border border-outline-variant/30 text-xs">Pytorch</span>
+<span class="px-4 py-2 rounded-lg bg-surface-container-highest border border-outline-variant/30 text-xs">Google Earth Engine</span>
+<span class="px-4 py-2 rounded-lg bg-surface-container-highest border border-outline-variant/30 text-xs">PostGIS</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center opacity-60">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="neurology">neurology</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Deep Learning</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="public">public</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Geospatial</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="cloud">cloud</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Azure Cloud</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="sensors">sensors</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Remote Sensing</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="smartphone">smartphone</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Flutter Edge</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="database">database</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Big Data</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact -->
+<section class="py-24 fade-in" id="impact">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<img class="relative rounded-3xl shadow-2xl w-full" data-alt="Happy farmer in a green field holding a tablet displaying colorful farm analytics and heatmaps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpnUT3HuacG0hN5gal5RuMGDfzXJXhlsowUZmnh3VpF63rYX7xHV_dmk-Wae3JuHtvOcm4bErgN_-7fd_u6JhfA34-GMZdklwbK7sfYRD2-qPsJ2fDv5BK6ZKQV_PzDxNLmf-v5odvysCrPpbz3sxTgMRaskBVpqc5R8JW0Fu6DW6w2rnzVIuvRhsgSVthIsG8MIjOFm0ex7NiPA588PPp9Mnpc9VcdPVpfDjrTb1wWHinKuTnYoHaZumgnV6xih-oy87qJB-32ME"/>
+</div>
+<div>
+<h2 class="text-4xl font-extrabold font-headline mb-8">Real-World Impact</h2>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-bold">Yield Increase</span>
+<span class="text-primary font-bold">25% +</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-bold">Risk Exposure Reduction</span>
+<span class="text-secondary font-bold">40% -</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<ul class="space-y-4 pt-4">
+<li class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface/80">Sustainable livelihood for 10k+ hill farmers</span>
+</li>
+<li class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface/80">Reduction in input waste (water, fertilizers)</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Platform Preview -->
+<section class="py-24 bg-surface-container-lowest fade-in">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold font-headline mb-4">Command Center</h2>
+<p class="text-on-surface-variant">A portal into the health of your landscape.</p>
+</div>
+<div class="glass-panel rounded-[2rem] p-4 md:p-8 shadow-2xl overflow-hidden border border-white/5">
+<div class="grid grid-cols-12 gap-6">
+<!-- Sidebar Mock -->
+<div class="hidden md:block col-span-3 space-y-4">
+<div class="p-4 bg-surface-container-highest rounded-xl border border-white/5">
+<div class="text-xs text-on-surface/40 uppercase font-bold mb-4">Live Monitoring</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-sm">Landslide Alert: Zone 4</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-sm">NDVI Index: Optimal</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<div class="text-xs text-on-surface/40 uppercase font-bold mb-4">Quick Actions</div>
+<div class="space-y-2">
+
+  <div onclick="showFeature('Irrigation Schedule')" 
+       class="bg-surface-container-low p-2 rounded-lg text-xs cursor-pointer hover:bg-surface-container-high transition-colors">
+    Irrigation Schedule
+  </div>
+
+  <div onclick="showFeature('Yield Estimator')" 
+       class="bg-surface-container-low p-2 rounded-lg text-xs cursor-pointer hover:bg-surface-container-high transition-colors">
+    Yield Estimator
+  </div>
+
+  <div onclick="showFeature('Community Forum')" 
+       class="bg-surface-container-low p-2 rounded-lg text-xs cursor-pointer hover:bg-surface-container-high transition-colors">
+    Community Forum
+  </div>
+
+</div>
+</div>
+</div>
+<!-- Map Mock -->
+<div class="col-span-12 md:col-span-6 h-[400px] rounded-2xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Satellite map view of agricultural parcels with colorful heat map layers representing moisture and health" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOB09WS1s8STE6DvnQr84C8W4tAjUjA_w2mGKo5zRVJFxfDLUaqE25hH96wuvvwRFllp_bjhG2otbbk-zKykfAGkn6DkGIHAwbdGUX5V0zyrOgKBvanRLFjRm7KnjUOjxX9Eh6bSIlW3RAbcHEq1kFwDzS1CWkLUIYr6iblreV7_Tl4XTCY1GLMrfCS8hwJgaTDOtbOCBY1MgE10aLds90L3Nchn1dynk_SVORxtnHMBwQizduU4XQYhENy72eqy-XkR_6gyMh5Fc"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<div class="bg-background/80 p-2 rounded-lg backdrop-blur-md border border-white/10">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+</div>
+<div class="bg-background/80 p-2 rounded-lg backdrop-blur-md border border-white/10">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Stats Mock -->
+<div class="col-span-12 md:col-span-3 space-y-6">
+<div class="p-6 bg-surface-container-high rounded-2xl border-l-4 border-primary">
+<div class="text-xs text-on-surface/50 mb-1">Soil Health Index</div>
+<div class="text-3xl font-bold font-headline">
+  <span id="soilValue">84%</span>
+</div>
+<div class="text-[10px] text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +5.2% from last week
+                            </div>
+</div>
+<div class="p-6 bg-surface-container-high rounded-2xl border-l-4 border-secondary">
+<div class="text-xs text-on-surface/50 mb-1">Precipitation Prob.</div>
+<div class="text-3xl font-bold font-headline">12%</div>
+<div class="text-[10px] text-secondary mt-2">Next 72 Hours: Arid</div>
+</div>
+<div class="p-6 bg-tertiary-container/30 rounded-2xl border-l-4 border-tertiary">
+<div class="text-xs text-tertiary mb-1">Recommended Action</div>
+<div class="text-sm font-semibold">Postpone fertilization to Friday 09:00 AM</div>
+<div class="mt-6 p-6 bg-surface-container-high rounded-2xl border-l-4 border-primary">
+  
+  <div class="text-xs text-on-surface/50 mb-2">AI Advisory Input</div>
+
+  <input id="conditionInput" 
+    placeholder="Enter condition (rain, heat, cold)" 
+    class="w-full p-2 rounded text-black"/>
+
+  <button onclick="generateAdvice()" 
+    class="mt-3 w-full px-4 py-2 bg-primary rounded text-black font-semibold">
+    Get Smart Advice
+  </button>
+
+  <p id="outputAdvice" class="mt-3 text-primary text-sm"></p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainability -->
+<section class="py-24 overflow-hidden relative fade-in">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<h2 class="text-3xl font-bold font-headline mb-6">Built for Global Impact</h2>
+<p class="text-on-surface/70 mb-10 leading-relaxed">Our system is directly aligned with United Nations Sustainable Development Goals, prioritizing Rural Empowerment (SDG 1) and Climate Action (SDG 13).</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+</div>
+<span class="text-xs font-bold">Regenerative Farming</span>
+</div>
+<div class="p-4 bg-surface-container rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+</div>
+<span class="text-xs font-bold">Rural Empowerment</span>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<img class="rounded-[3rem] grayscale hover:grayscale-0 transition-all duration-700" data-alt="Sunlight filtering through a dense, lush green forest canopy symbolizing ecological balance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpAUuVs7iUR9aoookaeem4XiKjE5dTXQR0R40rokbq4kpj0pswTQ9HIcmLcnF2jQScthx1hXYmw6x0wgr5EYBGk2E9eQcboU8-tzWjF1H81PymMDxE-fQiAUg-FBOmExTVOtQgerukqdtXwNL3FV_APUOOjjaIf4feQhOKSjGD9epDhn5eJtuaPj3jW_Y5ahhOCxASFQu_2dmzbP4JQhBCyqjWGOXq6LbWHyggXAiDpxtc2YjA3V9ZGazaS0xzYTTXKYLbZrwdwuA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 bg-surface-container-low fade-in" id="team">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-extrabold font-headline mb-16 text-center">The Visionaries</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center group">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-3xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young man with a professional look against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPOI3NCVFJMBoQGNb5hn_cm66CwDL5ekY9hGt0DUkv1fwRioCaknX_t0DUWYIjR00vzzR6hIUmLZmDIDc2X7JfUlDjQxdzSALWBPtEMB-yqBtKLK9j-WF-wcWPe9Z0LdHdjFeLP25Fj8EK3IL-8u95ImWVcBpANWFKfzT82vTKLbDjSYKlcdbDYPN-e-fUdrvx1G1NtzY3_dSQyghDOS9Q8WHZ2FAe0JoAfvtwhQv33kGCz4WmcNcOMfSpDEWIPIGjI9HBtpVm7dA"/>
+</div>
+<h4 class="text-xl font-bold font-headline">Arjun Sharma</h4>
+<p class="text-primary text-sm mb-4">ML Architect &amp; Lead Developer</p>
+<div class="flex justify-center gap-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="hub">hub</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="share">share</span>
+</div>
+</div>
+<div class="text-center group">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-3xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional woman with a bright and confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD96YZGpNBA_foy7tbRpUZ6Nd5HLT0aK7wSVh_WVabclQUMlqwcnJL73iUEqN0dmMXX6TLECCXos5QQ84WaxNdOHs48_qwKv9Q2MJDJo9RWiOX9RKavbbPoJhPCGVbyzp6XO_0AlyWMuXh5pwLGFzznTnDFv8LwQjpWYCAAvV9MpIhD_ksPmI6_1EXkdIVID-hmngKFzx7Y43s2Kah6ngrdAjRTIGaRvi-nReWq-FZurIFvjigZDlxcd3V5aYz0j7uPaEi55tl5Ihs"/>
+</div>
+<h4 class="text-xl font-bold font-headline">Priya Das</h4>
+<p class="text-secondary text-sm mb-4">Geospatial Specialist</p>
+<div class="flex justify-center gap-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary" data-icon="hub">hub</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary" data-icon="share">share</span>
+</div>
+</div>
+<div class="text-center group">
+<div class="relative w-48 h-48 mx-auto mb-6 rounded-3xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling young professional man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXPFbGatyzshYpgfLSJLIYih8_qpYDulbMARQuNLlKs-Yy1BbUQ6h0ekRiDgyiGfulqWIh19gDOQfLDcBx4A4fIJ3yJ7m2j2-6NjT3Peep_pz71O60wYmj4k05DcMXh1_8QrYQTRNfEJBIz3fPOhRrQ3dLh-PSjjcI-1IBz6YNKkQ1lJzfusN2fOmXR3yE6FD3ngiJwOO--McYHJOZaflUXGXQ3-GabXj5kkBA-yKTtzoYotaCie47MLTNMLQ7eYAHsoOdXZGKWTI"/>
+</div>
+<h4 class="text-xl font-bold font-headline">Rohan Mehta</h4>
+<p class="text-tertiary text-sm mb-4">Product Strategy &amp; UX</p>
+<div class="flex justify-center gap-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary" data-icon="hub">hub</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary" data-icon="share">share</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 bg-surface fade-in" id="contact">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+<div>
+<h2 class="text-4xl font-extrabold font-headline mb-6">Let's Cultivate Resilience</h2>
+<p class="text-on-surface/70 mb-8">Join us in transforming agriculture for the climate-uncertain future. Whether you're a partner, researcher, or curious mind—we'd love to hear from you.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<div class="text-xs text-on-surface/40 uppercase font-bold">Email Us</div>
+<div class="font-bold">hello@agriclimate.ai</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<div>
+<div class="text-xs text-on-surface/40 uppercase font-bold">Open Source</div>
+<div class="font-bold">github.com/agriclimate-ai</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 glass-panel rounded-3xl border border-white/5">
+<form class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<input class="bg-surface-container-low border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-secondary/40" placeholder="First Name" type="text"/>
+<input class="bg-surface-container-low border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-secondary/40" placeholder="Last Name" type="text"/>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-secondary/40" placeholder="Email Address" type="email"/>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-sm focus:ring-1 focus:ring-secondary/40" placeholder="Tell us about your project or interest..." rows="4"></textarea>
+<button class="w-full btn-primary-gradient p-4 rounded-xl font-bold text-on-primary-fixed hover:shadow-lg transition-all">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#071518] w-full rounded-t-[1.5rem] mt-24">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-12 py-16 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="text-lg font-bold text-[#95d4b3] font-headline mb-4">AgriClimate AI</div>
+<p class="font-['Inter'] text-xs text-[#d6e5e9]/60 leading-relaxed">
+                    © 2024 AI-Driven Climate Intelligence. Resilient Agriculture for a Living Planet.
+                </p>
+</div>
+<div>
+<h4 class="text-[#95d4b3] font-semibold mb-6 text-sm">Product</h4>
+<div class="flex flex-col gap-4 font-['Inter'] text-xs text-[#d6e5e9]/50">
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Solutions</a>
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Climate Data</a>
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Hackathon 2024</a>
+</div>
+</div>
+<div>
+<h4 class="text-[#95d4b3] font-semibold mb-6 text-sm">Legal</h4>
+<div class="flex flex-col gap-4 font-['Inter'] text-xs text-[#d6e5e9]/50">
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+<div>
+<h4 class="text-[#95d4b3] font-semibold mb-6 text-sm">Connect</h4>
+<div class="flex flex-col gap-4 font-['Inter'] text-xs text-[#d6e5e9]/50">
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Contact Support</a>
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">GitHub</a>
+<a class="hover:text-[#95d4b3] underline-offset-4 hover:underline" href="#">Twitter</a>
+</div>
+</div>
+</div>
+<script>
+function showFeature(name) {
+  let msg = "";
+
+  if(name === "Irrigation Schedule") {
+    msg = "💧 Irrigate crops tomorrow morning (Low rainfall expected)";
+  }
+  else if(name === "Yield Estimator") {
+    msg = "📊 Expected yield increase: 12% with current conditions";
+  }
+  else if(name === "Community Forum") {
+    msg = "👥 Connect with nearby farmers for shared insights";
+  }
+
+  alert(msg);
+}
+</script>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".fade-in").forEach((el) => {
+  observer.observe(el);
+});
+
+function generateAdvice() {
+  let input = document.getElementById("conditionInput").value.toLowerCase();
+  let result = "";
+
+  if(input.includes("rain")) {
+    result = "🌧 Avoid irrigation, rainfall expected";
+  }
+  else if(input.includes("heat")) {
+    result = "🌡 Increase watering to prevent crop stress";
+  }
+  else if(input.includes("cold")) {
+    result = "❄ Protect crops from frost damage";
+  }
+  else if(input.includes("wind")) {
+    result = "💨 Secure crops, high wind risk";
+  }
+  else {
+    result = "📊 Monitor soil and weather conditions regularly";
+  }
+
+  document.getElementById("outputAdvice").innerText = result;
+}
+
+document.getElementById("soilValue").innerText =
+  Math.floor(Math.random() * 20 + 70) + "%";
+
+</script>
+</body>
+</html>
